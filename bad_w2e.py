@@ -32,9 +32,27 @@ LYRICS = [
     (110, "oh, babe"),
     (117, "coffee in the morning"),
     (120, "you and the sun!"),
-    (124, "there's a brown hue in your eyes")
+    (124, "there's a brown hue in your eyes"),
     (131, "how pretty it is?"),
-    ()
+    (133, "i think im in loveee"),
+    (171, "when i went to the park"),
+    (175.5, "i recognized you at a glance"),
+    (183, "face to face"),
+    (186, "we smiled and i finally..."),
+    (192, "held your handss"),
+    (196, "how could my day be bad when i'm with you?"),
+    (201, "you're the only one who makes me laugh!"),
+    (208, "so how can my day be bad?"),
+    (214.5, "it's a day for you"),
+    (219, "oh, babe"),
+    (224, "how can my day be bad when i'm with you?"),
+    (229.5, "you're the only one who makes me laugh!"),
+    (236, "so how can my day be bad?"),
+    (243, "it's a day for you"),
+    (248, "oh, babe"),
+
+
+
 
 ]
 
