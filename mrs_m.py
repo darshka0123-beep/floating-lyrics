@@ -7,8 +7,31 @@ pygame.mixer.music.load("mrs_m.mp3")
 
 # timestamps
 lyrics = [
-    (1.0, "mrs. magic to and fro"),
     (30.5, "mrs. magic to and fro"),
+    (37.5, "please give me one last show"),
+    (45, "loosen my mind from within"),
+    (52.5, "before it starts to wear and thin"),
+    (60.5, "i don't know :("),
+    (64, "i don't know what i'm doing here."),
+    (75, "i don't know :("),
+    (78.5, "i don't know what i'm doing here."),
+    (95.5, "mrs. magic radio"),
+    (103, "give me one last chance to show"),
+    (110, "tell you what lurks deep inside"),
+    (117.5, "deep inside my battered mind"),
+    (125.5, "i don't know :("),
+    (129, "i don't know what i'm doing here."),
+    (139.5, "i don't know :("),
+    (144.5, "i don't know what i'm doing here."),
+    (155.5, "leaving me outside"),
+    (160.5, "no, i can't get back in"),
+    (164, "no, i can't get back in"),
+    (170, "leaving me outside"),
+    (175, "no, i can't get back in"),
+    (179, "no, i can't get back in, ooh"),
+    (190, "mrs. magic to and fro"),
+    (195.5, "just let me"),
+    (197.5, "be myself"),
 ]
 
 box_width, box_height = 350, 260
@@ -74,7 +97,7 @@ class lyricfloatapp:
 
     def get_x_position(self):
         if self.current_side == "left":
-            self.current_side == "right"
+            self.current_side = "right"
             return self.screen_w // 6
         else:
             self.current_side = "left"
@@ -93,7 +116,7 @@ class lyricfloatapp:
                 self.cards.append(card)
                 self.next_lyric_idx += 1
         if self.last_frame_time:
-            dt = now = self.last_frame_time
+            dt = now - self.last_frame_time
             dy = speed * dt
             for card in self.cards:
                 card.rise(dy)
