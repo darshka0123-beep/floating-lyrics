@@ -7,7 +7,8 @@ pygame.mixer.music.load("mrs_m.mp3")
 
 # timestamps
 lyrics = [
-    (30.5, "mrs. magic to and fro")
+    (1.0, "mrs. magic to and fro"),
+    (30.5, "mrs. magic to and fro"),
 ]
 
 box_width, box_height = 350, 260
@@ -20,7 +21,6 @@ class lyric_card:
     def __init__(self, parent, text, x, y):
         self.win = tk.Toplevel(parent)
         self.win.overrideredirect(True)
-        self.win.attributes("-topmost", True)
         self.win.configure(bg=bg_color)
         self.win.geometry(f"{box_width}x{box_height}+{int(x)}+{int(y)}")
 
@@ -30,6 +30,7 @@ class lyric_card:
             text="",
             font=font,
             bg=bg_color,
+            fg=fg_color,
             wraplength=box_width - 40,
             justify="center",
         )
@@ -39,6 +40,9 @@ class lyric_card:
         self.y = float(y)
         self.typewriter_index = 0
         self.typewriter()
+
+        self.win.attributes("-topmost", True)
+        self.win.update()
 
     def typewriter(self):
         if self.typewriter_index <= len(self.full_text):
@@ -53,7 +57,8 @@ class lyric_card:
 class lyricfloatapp:
     def __init__(self, root):
         self.root = root
-        self.root.withdraw()
+        self.root.geometry("1x1+0+0")
+        self.root.attributes("-alpha", 0.0)
 
         self.screen_w = root.winfo_screenwidth()
         self.screen_h = root.winfo_screenheight()
@@ -72,7 +77,7 @@ class lyricfloatapp:
             self.current_side == "right"
             return self.screen_w // 6
         else:
-            self.current = "left"
+            self.current_side = "left"
             return (self.screen_w // 2)
 
     def update_loop(self):
