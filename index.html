@@ -11,52 +11,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@stlite/browser@0.76.0/build/stlite.js"></script>
     <script>
       stlite.mount(
-        `
-import streamlit as st
-import time
-
-# Custom CSS for aesthetic pink card & font
-st.markdown("""
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-
-.stApp {
-    background-color: #FFD1DC;
-    color: #FFFFFF;
-}
-
-.lyric-card {
-    font-family: 'Great Vibes', cursive;
-    font-size: 40px;
-    text-align: center;
-    padding: 20px;
-    background-color: #FFB6C1;
-    border-radius: 15px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-</style>
-""", unsafe_allow_html=True)
-
-st.title("Floating Lyrics")
-
-LYRICS = [
-    (0, "it's a day for you"),
-    (5, "oh, babe")
-]
-
-card_placeholder = st.empty()
-start_button = st.button("Start Lyrics Sync")
-
-if start_button:
-    start_time = time.time()
-    for timestamp, text in LYRICS:
-        while time.time() - start_time < timestamp:
-            time.sleep(0.1)
-        card_placeholder.markdown(
-            f'<div class="lyric-card">{text}</div>',
-            unsafe_allow_html=True
-        )
-`,
+        {
+          requirements: ["streamlit"],
+          entrypoint: "app.py",
+          files: {
+            "app.py": {
+              url: "./app.py"
+            },
+            "bad.mp3": {
+              url: "./bad.mp3"
+            }
+          }
+        },
         document.getElementById("root")
       );
     </script>
